@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_203248) do
+ActiveRecord::Schema.define(version: 2018_11_03_005313) do
+
+  create_table "actors", force: :cascade do |t|
+    t.text "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "actors_blocs", id: false, force: :cascade do |t|
+    t.integer "actor_id"
+    t.integer "bloc_id"
+  end
 
   create_table "blocs", force: :cascade do |t|
     t.decimal "lat1", precision: 10, scale: 5

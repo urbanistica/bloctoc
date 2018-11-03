@@ -1,4 +1,5 @@
 class Bloc < ApplicationRecord
+    has_and_belongs_to_many :actors
     
     def self.generate_bloc(pt) 
         lat1 = pt[:lat].round(2)
