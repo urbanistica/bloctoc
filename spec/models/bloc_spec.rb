@@ -10,7 +10,7 @@ RSpec.describe Bloc, type: :model do
         @bloc.save
     end
     
-    describe "Some Bloc" do
+    describe "Blocs" do
         it "contains decimal values" do
             expect(@bloc.lat1.class).to eql(BigDecimal)
             expect(@bloc.lat2.class).to eql(BigDecimal)

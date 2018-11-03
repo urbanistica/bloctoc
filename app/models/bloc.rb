@@ -2,8 +2,8 @@ class Bloc < ApplicationRecord
     has_and_belongs_to_many :actors
     
     def self.generate_bloc(pt) 
-        lat1 = pt[:lat].round(2)
-        lng1 = pt[:lng].round(2)
+        lat1 = pt[:lat].floor(2)
+        lng1 = pt[:lng].floor(2)
         lat2 = lat1 + 0.01
         lng2 = lng1 + 0.01
         b = Bloc.where(lat1: lat1, lng1: lng1)
@@ -20,7 +20,7 @@ class Bloc < ApplicationRecord
     end
 
     def point_within(pt) 
-        return lat1 < pt[:lat] && pt[:lat] < lat2 && lng1 < pt[:lng] && pt[:lng] < lat2
+        return lat1 <= pt[:lat] && pt[:lat] <= lat2 && lng1 <= pt[:lng] && pt[:lng] <= lat2
     end
     
     def bloc_adjacent(bloc)
