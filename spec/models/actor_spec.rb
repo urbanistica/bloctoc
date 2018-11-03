@@ -7,7 +7,6 @@ RSpec.describe Actor, type: :model do
       end
       
       it "can append a bloc to its collection of blocs" do
-          
           pt = {lat: 23.005, lng:22.005}
           @actor.add_bloc(pt)
           expect(@actor.blocs.count).to eql(1)
@@ -19,23 +18,11 @@ RSpec.describe Actor, type: :model do
           @actor.blocs << bloc
           b = @actor.bloc_for_point(pt)
           expect(b.class).to eql(Bloc)
+          pt[:lat] = 25.409
+          b = @actor.bloc_for_point(pt)
+          expect(b.class).to eql(Nil)
       end
       
-      it "can generate a list of current blocs in its collection" do
-          
-      end
-      
-      it "can remove a bloc from its collection" do
-          
-      end
-      
-      it "can emit the boundaries of all actors' blocs" do
-          
-      end
-      
-      it "can emit actors who share a bloc with another actor" do
-          
-      end
       
   end
 end
