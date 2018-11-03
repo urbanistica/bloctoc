@@ -60,9 +60,12 @@ RSpec.describe Bloc, type: :model do
         end
         
         it "finds a bloc for a given point" do
-            pt = {lat: 22.15, lng:22.15 }
+            pt = {lat: 22.105, lng:22.105 }
             b = Bloc.for_point(pt)  
             expect(b.length).to eql(1)
+            pt[:lat] = 24.0
+            b = Bloc.for_point(pt)  
+            expect(b.length).to eql(0)
         end
     end
     

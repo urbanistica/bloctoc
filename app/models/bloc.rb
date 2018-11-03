@@ -36,7 +36,7 @@ class Bloc < ApplicationRecord
     end
     
     def self.for_point(pt)
-        Bloc.where(["lat1 < ? and lat2 > ? and lng1 < ? and lng2 > ?", pt[:lat], pt[:lng], pt[:lat], pt[:lng]])
+        Bloc.where(["lat1 < ? and lat2 > ? and lng1 < ? and lng2 > ?", pt[:lat], pt[:lat], pt[:lng], pt[:lng]])
     end
     
     
